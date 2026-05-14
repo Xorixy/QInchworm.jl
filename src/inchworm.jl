@@ -833,7 +833,7 @@ function correlator_2p(expansion::Expansion,
         if td.order == 0
             @timeit tmr "Setup" begin
             fixed_nodes = Dict(1 => n_B, 2 => n_A, 3 => n_f)
-            eval = teval.TopologyEvaluator(expansion, 0, true, fixed_nodes, tmr=tmr)
+            eval = teval.TopologyEvaluator(expansion, 0, false, fixed_nodes, tmr=tmr)
             end # tmr
             @timeit tmr "Evaluation" begin
             order_contrib = tr(eval(td.topologies, kd.BranchPoint[]))
