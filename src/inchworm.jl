@@ -837,6 +837,8 @@ function correlator_2p(expansion::Expansion,
             end # tmr
             @timeit tmr "Evaluation" begin
             order_contrib = tr(eval(td.topologies, kd.BranchPoint[]))
+            # Rescale: numerator uses P0, denominator will use Z(P)
+            order_contrib *= partition_function(expansion.P) / partition_function(expansion.P0)
             order_contrib_std = .0
             end # tmr
         else
