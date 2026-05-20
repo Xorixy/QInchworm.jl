@@ -1013,8 +1013,7 @@ function correlator_2p(expansion::Expansion,
         ismaster() && @info "Evaluating correlator ⟨$(A), $(B)⟩"
 
         # Only the 0-th order can contribute at τ_A = τ_B
-        # No, it should have contributions from all orders! Disabling this for now
-	if false && top_data[1].order == 0
+        if top_data[1].order == 0
             corr_list[end][τ_B, τ_B], corr_std_list[end][τ_B, τ_B] =
             correlator_2p(
                 expansion,
