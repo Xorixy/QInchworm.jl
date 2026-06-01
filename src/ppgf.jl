@@ -628,7 +628,7 @@ The energy shift ``\\lambda``.
 """
 function normalize!(P::Vector{<:kd.AbstractTimeGF}, β::Float64)
     Z = partition_function(P)
-    λ = log(Z) / β
+    λ = log(abs(Z)) / β       # use physical (real) partition function
     for P_s in P
         normalize!(P_s, λ)
     end
